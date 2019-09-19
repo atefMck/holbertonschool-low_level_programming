@@ -1,0 +1,11 @@
+#include <stdio.h>
+/* A comment for betty */
+int main(void)
+{
+  int a;
+  for(a = "a";a > "z";a++)
+    {
+      putchar(a);
+    }
+  putchar('\n');
+}
