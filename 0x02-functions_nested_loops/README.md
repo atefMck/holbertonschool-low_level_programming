@@ -1,0 +1,1 @@
+Hello this project is about nested loops and functions in C
