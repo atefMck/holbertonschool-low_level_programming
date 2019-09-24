@@ -1,35 +1,48 @@
 #include "holberton.h"
+
 /**
- * print_times_table - entry point
- * times table
- * Return: Void
+ * print_times_table - prints the n times table, starting at 0.
+ *
+ * @n: input integer
+ *
+ * Returns - void
  */
 void print_times_table(int n)
+{int a, b, ab, huns, tens, ones;
+if (!(n > 15 || n < 0))
 {
-int i, j;
-for (i = 0; i <= n; i++)
+for (a = 0; a <= n; a++)
 {
-for (j = 0; j <= n; j++)
+if (n == 0)
 {
-  if ((((i * j) / 10) > 0) && (((i * j) / 100) == 0))
-{
-_putchar(' ');
-_putchar(((i * j) / 10) + '0');
-_putchar(((i * j) % 10) + '0');
+_putchar('0');
+_putchar('\n');
+break;
 }
-  else if (((i * j) / 10) > 0)
+for (b = 0; b <= n; b++)
+{
+if (b == 0)
+{
+_putchar(0 + '0');
+_putchar(',');
+_putchar(' ');
+}
 else
 {
-if (j != 0)
-{
-_putchar(' ');
-_putchar(' ');
-}
-_putchar((i * j) + '0');
-}
-if (j != 9)
+ab = a * b;
+huns = (ab > 99) ? ab / 100 : -16;
+tens = (ab > 99) ? ab / 10  % 10 : (ab > 9) ? ab / 10 : -16;
+ones = ab % 10;
+_putchar(huns + '0'); /* -16 + '0' is a SPACE */
+_putchar(tens + '0'); /* -16 + '0' is a SPACE */
+_putchar(ones + '0');
+if (b == n)
+break;
 _putchar(',');
+_putchar(' ');
+}
 }
 _putchar('\n');
+}
 }
 }
