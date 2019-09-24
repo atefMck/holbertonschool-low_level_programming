@@ -19,8 +19,11 @@ _putchar(((i * j) % 10) + '0');
 }
 else
 {
+if (j != 0)
+{
 _putchar(' ');
 _putchar(' ');
+}
 _putchar((i * j) + '0');
 }
 if (j != 9)
