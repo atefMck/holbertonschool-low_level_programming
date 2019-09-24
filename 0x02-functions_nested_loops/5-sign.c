@@ -1,9 +1,8 @@
 #include "holberton.h"
-
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
+ * print_sign - entry point
+ * @n : number to check
+ * Return: int
  */
 int print_sign(int n)
 {

@@ -1,12 +1,11 @@
 #include "holberton.h"
-#include <stdio.h>
-
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
+ * add - entry point
+ * @a: number
+ * @b: number
+ * Return: Always 0 (Success)
  */
 int add(int a, int b)
 {
-  return (a + b);
+return (a + b);
 }
