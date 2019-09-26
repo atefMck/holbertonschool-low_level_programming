@@ -1,0 +1,19 @@
+#include <stdio.h>
+/**
+ * main - write biggest factor
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+long num = 612852475143;
+long i, s;
+for (i = 2; i <= num; i++)
+{
+if (num % i == 0)
+s = i;
+num = num / i;
+}
+printf("%ld\n", s);
+return (0);
+}
