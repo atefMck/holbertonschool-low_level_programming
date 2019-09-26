@@ -1,5 +1,4 @@
 #include "holberton.h"
-
 /**
  * print_most_numbers - print all digits.
  *

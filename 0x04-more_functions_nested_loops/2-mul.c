@@ -2,10 +2,11 @@
 #include "holberton.h"
 /**
  * mul - miltuplies two digits
- * @a,@b: the two int to multiply
+ * @a: the two int to multiply
+ * @b: the two int to multiply
  * Return: result.
  */
 int mul(int a, int b)
 {
-return (a*b);
+return (a * b);
 }
