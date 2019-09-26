@@ -1,7 +1,6 @@
 #include "holberton.h"
 /**
- * more_number - lol
- * 
+ * more_numbers - this is a lot of numbers
  * Return: void
  */
 void more_numbers(void)
