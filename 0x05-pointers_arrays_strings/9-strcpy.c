@@ -13,5 +13,6 @@ while (*(src + i))
 *(dest + i) = *(src + i);
 i++;
 }
+*(src + i + 1) = '\0';
 return (dest);
 }
