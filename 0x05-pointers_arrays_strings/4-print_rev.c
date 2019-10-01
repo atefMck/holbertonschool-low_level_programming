@@ -10,12 +10,13 @@ int i = 0;
 while (*(s + i))
 i++;
 i--;
+int n = i;
 char c;
-while (i >= 0)
+while (n >= 0)
 {
-c = *(s + i);
+c = *(s + n);
 _putchar(c);
-i--;
+n--;
 }
 _putchar('\n');
 }
