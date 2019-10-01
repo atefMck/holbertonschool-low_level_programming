@@ -1,11 +1,11 @@
 #include <unistd.h>
 #include "holberton.h"
 /**
- * _puts - prints a string
+ * puts2 - prints every other char of a string
  * @str: the string to print
  * Return: void.
  */
-void _puts(char *str)
+void puts2(char *str)
 {
 int i = 0;
 char c;
