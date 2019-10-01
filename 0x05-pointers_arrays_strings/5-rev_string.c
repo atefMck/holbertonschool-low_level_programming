@@ -1,4 +1,3 @@
-#include <unistd.h>
 #include "holberton.h"
 /**
  * rev_string - reverse a string
@@ -8,15 +7,13 @@
 void rev_string(char *s)
 {
 int i, j;
-for (i = 0; *(s + i); i++)
+for (j = 0; *(s + j); j++)
 ;
-int k = i;
 char c;
-for (j = 0; j <= k / 2; j++)
+for (i = 0; i < n / 2; i++)
 {
-c = *(s + j);
-*(s + j) = *(s + i -1);
-*(s + i -1) = c;
-i--;
+c = *(s + i);
+*(s + i) = *(j - i -1);
+*(s - j -1) = c;
 }
 }
