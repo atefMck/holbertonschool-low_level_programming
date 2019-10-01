@@ -11,9 +11,12 @@ int i = 0;
 char c;
 while (*(str + i))
 {
+if (i % 2 == 0)
+{
 c = *(str + i);
 _putchar(c);
-i += 2;
+}
+i++;
 }
 _putchar('\n');
 }
