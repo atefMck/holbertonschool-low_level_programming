@@ -11,7 +11,7 @@ while (*(s + i))
 i++;
 i--;
 char c;
-while (*(s + i))
+while (i >= 0)
 {
 c = *(s + i);
 _putchar(c);
