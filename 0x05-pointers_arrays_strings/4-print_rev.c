@@ -1,4 +1,3 @@
-#include <unistd.h>
 #include "holberton.h"
 /**
  * print_rev - prints a string in reverse
