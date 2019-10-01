@@ -10,7 +10,7 @@ int i, j;
 for (j = 0; *(s + j); j++)
 ;
 char c;
-for (i = 0; i < n / 2; i++)
+for (i = 0; i < j / 2; i++)
 {
 c = *(s + i);
 *(s + i) = *(j - i -1);
