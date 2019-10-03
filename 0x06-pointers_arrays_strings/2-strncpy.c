@@ -14,5 +14,10 @@ for (j = 0; j < n && src[j]; j++)
 {
 dest[j] = src[j];
 }
+while (j < n)
+{
+dest[j] = '\0';
+j++;
+}
 return (dest);
 }
