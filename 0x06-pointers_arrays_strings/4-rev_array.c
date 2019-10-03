@@ -10,6 +10,8 @@ void reverse_array(int *a, int n)
 {
 n--;
 int i, aux;
+if (n % != 0)
+n = n + 1;
 for (i = 0; i < n / 2; i++)
 {
 aux = a[i];
