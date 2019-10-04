@@ -6,14 +6,18 @@
 */
 void print_number(int n)
 {
-unsigned int div = 1,  l = n;
-unsigned int m = l;
-
+int div = 1,  l = n, ld;
 if (l < 0)
 {
 l = -l;
 _putchar('-');
 }
+if (l < 9) {
+div = 0;
+}
+ld = l % 10;
+l = l / 10;
+int m = l;
 while (l >= 10)
 {
 div *= 10;
@@ -24,4 +28,5 @@ for (; div != 0; div /= 10)
 _putchar(m / div + '0');
 m %= div;
 }
+_putchar(ld + '0');
 }
