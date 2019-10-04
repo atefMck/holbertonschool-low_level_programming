@@ -8,17 +8,18 @@
 */
 void print_number(int n)
 {
-unsigned int div = 1;
-if (n < 0)
+unsigned int div = 1,  l = n;
+
+if (l < 0)
 {
-n = -n;
+l = -l;
 _putchar('-');
 }
-unsigned int m = n;
-while (n >= 10)
+unsigned int m = l;
+while (l >= 10)
 {
 div *= 10;
-n /= 10;
+l /= 10;
 }
 for (; div != 0; div /= 10)
 {
