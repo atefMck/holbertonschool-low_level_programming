@@ -7,13 +7,13 @@
 void print_number(int n)
 {
 unsigned int div = 1,  l = n;
+unsigned int m = l;
 
 if (l < 0)
 {
 l = -l;
 _putchar('-');
 }
-unsigned int m = l;
 while (l >= 10)
 {
 div *= 10;
