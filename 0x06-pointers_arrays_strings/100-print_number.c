@@ -1,6 +1,4 @@
-#include <unistd.h>
 #include "holberton.h"
-#include <stdio.h>
 /**
 * print_number - copie n bytes of a string
 * @n: The destination string
