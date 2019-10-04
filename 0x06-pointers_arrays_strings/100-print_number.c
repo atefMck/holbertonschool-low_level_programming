@@ -15,7 +15,7 @@ n = -n;
 _putchar('-');
 }
 unsigned int m = n;
-while (n > 9)
+while (n >= 10)
 {
 div *= 10;
 n /= 10;
