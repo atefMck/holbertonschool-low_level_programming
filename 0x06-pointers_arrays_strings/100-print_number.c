@@ -20,9 +20,9 @@ while (n > 9)
 div *= 10;
 n /= 10;
 }
-do {
+for (; div != 0; div /= 10)
+{
 _putchar(m / div + '0');
 m %= div;
-div /= 10;
-} while (div != 0);
+}
 }
