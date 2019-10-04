@@ -1,25 +1,36 @@
-#include <unistd.h>
 #include "holberton.h"
-#include <stdio.h>
 /**
-* cap_string - copie n bytes of a string
-* @s: The destination string
-* Return: s.
+* cap_string - capitalize string
+* @s: string
+* Return: string
 */
 char *cap_string(char *s)
 {
-int i, j;
-while (s[i])
-i++;
-j = 0;
-while (j < i)
+int len = 0;
+int i;
+
+while (s[len] != '\0')
 {
-if (s[j - 1] == ' ' || s[j - 1] == '\n' || s[j - 1] == '\t' || s[j - 1] == '.')
-{
-if (s[j] >= 97 && s[j] <= 122)
-s[j] = s[j] - 32;
+len++;
 }
-j++;
+
+for (i = 0; s[i] != '\0'; i++)
+{
+if (i == 0)
+{
+if (s[i] >= 97 && s[i] <= 122)
+{
+s[i] -= 32;
+}
+}
+if (s[i] == '\n' || s[i] == '\t' || s[i] == ' ' || s[i] == '.'
+|| s[i] == ';' || s[i] == ',' || s[i] == '!' || s[i] == '?'
+|| s[i] == '"' || s[i] == '(' || s[i] == ')' || s[i] == '{'
+|| s[i] == '}')
+{
+if (s[i + 1] >= 97 && s[i + 1] <= 122)
+s[i + 1] -= 32;
+}
 }
 return (s);
 }
