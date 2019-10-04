@@ -9,21 +9,20 @@
 void print_number(int n)
 {
 int div = 1;
-if (n < 0) {
+if (n < 0)
+{
 n = -n;
 _putchar('-');
 }
 int m = n;
-while(n > 9)
+while (n > 9)
 {
 div *= 10;
 n /= 10;
 }
-do
-{
+do {
 _putchar(m / div + '0');
 m %= div;
 div /= 10;
-}
-while(div != 0);
+} while (div != 0);
 }
