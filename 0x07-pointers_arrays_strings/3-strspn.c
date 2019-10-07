@@ -22,5 +22,5 @@ break;
 }
 }
 }
-return (r);
+return (r + 1);
 }
