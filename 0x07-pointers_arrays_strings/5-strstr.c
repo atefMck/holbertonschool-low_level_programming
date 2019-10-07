@@ -1,34 +1,47 @@
 #include "holberton.h"
-#include <stdio.h>
-
 /**
-* _strstr - fills memory with a constant byte.
-* @haystack: the memory area to print in
-* @needle: the memore to copy from
-* Return: r.
+* _strstr - find the 1st vence of the substring needle in haystack.
+* @haystack: string.
+* @needle: substring to look for.
+* Return: pointer to the beginning of the located substring, NULL if not found
 */
-
 char *_strstr(char *haystack, char *needle)
 {
-int i, j, v = 0;
-for (i = 0; haystack[i]; i++)
+unsigned int i = 0, j;
+int v = 0;
+char *r;
+
+while (haystack[i])
 {
+if (needle[0] == '\0')
+{
+return (haystack);
+}
 if (needle[0] == haystack[i])
 {
-v = i;
-for (j = 0; needle[j] && haystack[i]; j++)
+v = 1;
+r = &haystack[i];
+j = 0;
+while (needle[j] && haystack[i])
 {
-if (needle[j] != haystack[v])
+if (needle[j] == haystack[i])
+{
+v = 1;
+i++;
+j++;
+}
+else
 {
 v = 0;
 break;
 }
-else
-v++;
+}
+if (v == 1)
+{
+return (r);
 }
 }
-if (v != 0)
-return (&(haystack[i]));
+i++;
 }
 return (0);
 }
