@@ -9,18 +9,16 @@
 
 int is_prime_number(int n)
 {
-  int i = n;
-  if (i==1)
-      {
-          return 1;
-      }
-      else if(n %i==0)
-      {
-           return 0;
-      }
-      else
-         {
-           i = i -1;
-           is_prime_number(n);
-         }
+  if (n <= 1)
+    return (0);
+  return (prime(n, n / 2));
+}
+
+int prime(int a, int b)
+{
+  if (a % b == 0)
+  return (0);
+  else
+  prime(a, b - 1);
+  return (1);
 }
