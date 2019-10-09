@@ -2,14 +2,26 @@
 #include <stdio.h>
 
 /**
-* _pow_recursion - fills memory with a constant byte.
-* @s: the memory area to print in
-* Return: void.
+* _sqrt_recursion - fills memory with a constant byte.
+* @n: the memory area to print in
+* Return: int.
 */
+
 
 int _sqrt_recursion(int n)
 {
-if (n == 0)
+if (n < 0)
 return (-1);
-return (n / _sqrt_recursion(n- 1));
+else
+return (sqrCheck(n, (n + 1) / 2));
+}
+
+int sqrCheck(int a, int b)
+{
+	if (b < 1)
+		return (-1);
+	else if (b * b == a)
+		return (b);
+	else
+		return (sqrCheck(a, b - 1));
 }
