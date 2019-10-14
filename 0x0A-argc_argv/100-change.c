@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
 int change = atoi(argv[1]);
 int pieces = 0;
-int coins[] = {25, 10, 5, 2, 1};
+int coins[5] = {25, 10, 5, 2, 1};
 int i = 0;
 
 if (argc != 2)
@@ -36,4 +36,5 @@ while (change != 0)
 }
 
 printf("%d\n", pieces);
+return (0);
 }
