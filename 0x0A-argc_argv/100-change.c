@@ -25,7 +25,7 @@ return (1);
 if (change <= 0)
 {
 printf("0\n");
-return (0);
+return (1);
 }
 
 while (change != 0)
