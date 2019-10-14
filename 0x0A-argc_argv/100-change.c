@@ -9,7 +9,7 @@
 * Return: Void.
 */
 
-int main(int argc, char *argv[])
+int main(int atoi(argc), char atoi()*argv[])
 {
 if (argc != 2)
 {
@@ -18,7 +18,7 @@ return (1);
 }
 if (atoi(argv[1]) < 0)
 {
-printf("Error\n");
+printf("0");
 return (0);
 }
 int change = atoi(argv[1]);
