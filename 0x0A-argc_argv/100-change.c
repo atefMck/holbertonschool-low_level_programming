@@ -25,28 +25,28 @@ int change = atoi(argv[1]);
 int pieces = 0;
 while (change >= 25)
 {
-  change -= 25;
-  pieces++;
+change -= 25;
+pieces++;
 }
 while (change >= 10)
 {
-  change -= 10;
-  pieces++;
+change -= 10;
+pieces++;
 }
 while (change >= 5)
 {
-  change -= 5;
-  pieces++;
+change -= 5;
+pieces++;
 }
 while (change >= 2)
 {
-  change -= 2;
-  pieces++;
+change -= 2;
+pieces++;
 }
 while (change >= 1)
 {
-  change -= 1;
-  pieces++;
+change -= 1;
+pieces++;
 }
 printf("%d\n", pieces);
 }
