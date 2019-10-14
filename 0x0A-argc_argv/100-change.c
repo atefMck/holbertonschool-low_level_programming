@@ -30,9 +30,9 @@ return (1);
 
 while (change != 0)
 {
-  pieces += change / coins[i];
-  change %= coins[i];
-  i++;
+pieces += change / coins[i];
+change %= coins[i];
+i++;
 }
 
 printf("%d\n", pieces);
