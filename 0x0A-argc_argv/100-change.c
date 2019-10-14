@@ -9,20 +9,20 @@
 * Return: Void.
 */
 
-int main(int atoi(argc), char atoi()*argv[])
+int main(int argc, char *argv[])
 {
+int change = atoi(argv[1]);
+int pieces = 0;
 if (argc != 2)
 {
 printf("Error\n");
 return (1);
 }
-if (atoi(argv[1]) < 0)
+if (change <= 0)
 {
 printf("0");
 return (0);
 }
-int change = atoi(argv[1]);
-int pieces = 0;
 while (change >= 25)
 {
 change -= 25;
