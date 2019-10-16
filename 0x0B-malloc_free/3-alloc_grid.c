@@ -27,12 +27,13 @@ for (; i < height; i++)
 r[i] = malloc(sizeof(**r) * width);
 if (r[i] == NULL)
 {
-for (i--; i <= 0; i--)
+for (; i <= 0; i--)
 free(r[i]);
 free(r);
 return (NULL);
 }
 }
+
 for (i = 0; i < height; i++)
 {
 for (j = 0; j < width; j++)
