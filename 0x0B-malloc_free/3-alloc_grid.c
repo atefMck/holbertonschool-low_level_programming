@@ -15,7 +15,7 @@ int **r;
 int i = 0;
 int j = 0;
 
-if (width <= 0 || height <= 0)
+if (width + height < 2 || width < 1 || height < 1)
 return (NULL);
 
 r = malloc(sizeof(*r) * height);
