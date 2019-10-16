@@ -22,24 +22,19 @@ r = malloc(sizeof(int) * height);
 if (r == NULL)
 return (NULL);
 
-while (i < height)
+for (; i < height; i++)
 {
 r[i] = malloc(sizeof(int) * width);
 if (r[i] == NULL)
 return (NULL);
-i++;
 }
 
-while (i < height)
+for (i = 0; i < height; i++)
 {
-while (j < width)
-{
+for (j = 0; j < width; j++)
 r[i][j] = 0;
-j++;
-}
 i++;
 }
 
 return (r);
-
 }
