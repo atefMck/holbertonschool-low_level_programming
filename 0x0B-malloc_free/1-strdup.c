@@ -15,9 +15,8 @@ int size = 0;
 if (*str == '\0')
 return (NULL);
 
-while (str[size] != '\0')
-size++;
-size++;
+for (size = 0; str[size] != '\0'; size++)
+;
 
 r = malloc(sizeof(char) * size + 1);
 if (r == '\0')
@@ -25,7 +24,7 @@ return (0);
 
 for (i = 0; i < size; i++)
 r[i] = str[i];
-r[i] = str[i];
+r[size] = str[size];
 
 return (r);
 }
