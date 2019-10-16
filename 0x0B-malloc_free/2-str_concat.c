@@ -16,19 +16,21 @@ int size2 = 0;
 int i = 0;
 char *r;
 
-if (s1 != NULL) {
+if (s1 != NULL)
+{
 while (s1[size] != '\0')
 size++;
 }
 
-if (s2 != NULL) {
+if (s2 != NULL)
+{
 while (s2[size2] != '\0')
 size2++;
 }
 
 r = malloc(sizeof(char) * (size + size2 + 1));
 if (r == NULL)
-return NULL;
+return (NULL);
 
 for (i = 0; i < size; i++)
 r[i] = s1[i];
