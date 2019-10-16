@@ -22,7 +22,7 @@ size2++;
 
 unsigned int i = 0;
 char *r;
-r = malloc(sizeof(char) * (size + size2));
+r = malloc(sizeof(char) * (size + size2 + 1));
 if (r == NULL)
 return NULL;
 
@@ -39,7 +39,7 @@ r[i] = s2[j];
 i++;
 j++;
 }
-r[size + size2] = s2[size2];
+r[size + size2] = '\0';
 
 return (r);
 }
