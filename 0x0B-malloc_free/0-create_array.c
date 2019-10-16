@@ -22,6 +22,7 @@ while (i < size)
 r[i] = c;
 i++;
 }
+r[i] = '\0';
 return (r);
 }
 }
