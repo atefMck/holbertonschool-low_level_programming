@@ -18,17 +18,21 @@ int j = 0;
 if (width <= 0 || height <= 0)
 return (NULL);
 
-r = malloc(sizeof(int) * height);
+r = malloc(sizeof(*r) * height);
 if (r == NULL)
 return (NULL);
 
 for (; i < height; i++)
 {
-r[i] = malloc(sizeof(int) * width);
+r[i] = malloc(sizeof(**r) * width);
 if (r[i] == NULL)
+{
+for (i--; i <= 0; i--)
+free(r[i]);
+free(r);
 return (NULL);
 }
-
+}
 for (i = 0; i < height; i++)
 {
 for (j = 0; j < width; j++)
