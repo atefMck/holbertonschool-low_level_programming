@@ -17,6 +17,7 @@ return (NULL);
 
 while (str[size] != '\0')
 size++;
+size++;
 
 r = malloc(sizeof(char) * size + 1);
 if (r == '\0')
