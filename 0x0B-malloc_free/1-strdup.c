@@ -13,13 +13,13 @@ if (sizeof(str) == 0)
 return (0);
 
 int size = 0;
-while (str[size] != '\0')
-size++;
+for (; str[size] != 0; size++)
+;
 
 int i = 0;
 char *r;
 
-r = malloc(sizeof(char) * size);
+r = malloc(sizeof(char) * size + 1);
 if (sizeof(r) == 0)
 return (0);
 
