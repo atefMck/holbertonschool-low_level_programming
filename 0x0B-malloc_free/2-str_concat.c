@@ -12,15 +12,15 @@ char *str_concat(char *s1, char *s2)
 {
 
 int size = 0;
-if (s1 != NULL) {
-while (s1[size])
+if (s1 != '\0') {
+while (s1[size] != '\0')
 size++;
 }
 
 
 int size2 = 0;
-if (s2 != NULL) {
-while (s2[size2])
+if (s2 != '\0') {
+while (s2[size2] != '\0')
 size2++;
 }
 
