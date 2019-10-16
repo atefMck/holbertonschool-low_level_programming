@@ -9,29 +9,27 @@
 
 char *_strdup(char *str)
 {
-if (sizeof(str) == 0)
-return (NULL);
-else
-{
 
 unsigned int size = 0;
 while (str[size])
 size++;
-
+if (size == 0)
+return (NULL);
 
 unsigned int i = 0;
 char *r;
-r = malloc(sizeof(char) * size);
+r = malloc(sizeof(char) * size + 1);
 if (r == NULL)
+{
+free(r);
 return (NULL);
+}
 
 while (i < size)
 {
 r[i] = str[i];
 i++;
 }
-r[i] = '\0';
 
 return (r);
-}
 }
