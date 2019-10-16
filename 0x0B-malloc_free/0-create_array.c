@@ -17,6 +17,8 @@ else
 unsigned int i = 0;
 char *r;
 r = malloc(sizeof(char) * size);
+if (r == NULL)
+return (NULL);
 while (i < size)
 {
 r[i] = c;
