@@ -20,16 +20,14 @@ int i = 0;
 char *r;
 r = malloc(sizeof(char) * size + 1);
 if (r == NULL)
-{
-free(r);
 return (NULL);
-}
 
 while (i <= size)
 {
 r[i] = str[i];
 i++;
 }
+r[i] = str[i];
 
 return (r);
 }
