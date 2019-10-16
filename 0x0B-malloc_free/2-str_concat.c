@@ -10,10 +10,6 @@
 
 char *str_concat(char *s1, char *s2)
 {
-if (sizeof(s1) == 0)
-return NULL;
-else
-{
 
 unsigned int size = 0;
 while (s1[size])
@@ -27,6 +23,8 @@ size2++;
 unsigned int i = 0;
 char *r;
 r = malloc(sizeof(char) * (size + size2));
+if (r == NULL)
+return NULL;
 
 while (i < size)
 {
@@ -41,7 +39,7 @@ r[i] = s2[j];
 i++;
 j++;
 }
+r[size + size2] = s2[size2];
 
 return (r);
-}
 }
