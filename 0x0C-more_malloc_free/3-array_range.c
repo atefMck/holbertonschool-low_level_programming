@@ -19,7 +19,7 @@ return (NULL);
 r = malloc(sizeof(int) * (max - min + 1));
 if (r == NULL)
 return (NULL);
-for (; min <= max; min++)
+for (; min <= max + 1; min++)
 r[min] = min;
 return (r);
 }
