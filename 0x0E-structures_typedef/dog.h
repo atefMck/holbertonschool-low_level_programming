@@ -1,5 +1,5 @@
-#ifndef _DOGGO_
-#define _DOGGO_
+#ifndef _DOG_H_
+#define _DOG_H_
 /**
  * struct dog - Defines a dogs attributes
  * @name: the dogs name
