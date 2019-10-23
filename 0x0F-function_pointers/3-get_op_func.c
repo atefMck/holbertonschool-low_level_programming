@@ -5,8 +5,6 @@
 /**
 * get_op_func - adittion
 * @s: the operator
-* @a: first num
-* @b: second num
 * Return: pointer to corresponding function.
 */
 
@@ -26,7 +24,7 @@ i = 0;
 while (ops[i].op)
 {
 if (*ops[i].op == *s)
-return(ops[i].f);
+return (ops[i].f);
 i++;
 }
 return (NULL);
