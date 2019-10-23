@@ -2,7 +2,7 @@
 #include "function_pointers.h"
 
 /**
-  * array_iterator - execute func on each elem
+  * int_index - execute func on each elem
   * @array: the array
   * @size: array size
   * @cmp: the func to exec
@@ -16,9 +16,11 @@ int v;
 
 if (array == NULL)
 return (0);
+if (cmp == NULL)
+return (0);
+
 if (size <= 0)
 return (-1);
-
 
 for (i = 0; i < size; i++)
 {
