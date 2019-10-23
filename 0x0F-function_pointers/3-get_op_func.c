@@ -18,12 +18,11 @@ op_t ops[] = {
 {"%", op_mod},
 {NULL, NULL}
 };
-int i;
+int i = 0;
 
-i = 0;
 while (ops[i].op)
 {
-if (*ops[i].op == *s)
+if (*(ops[i].op) == *s)
 return (ops[i].f);
 i++;
 }
