@@ -16,15 +16,17 @@ int (*operation)(int, int);
 int r;
 int a;
 int b;
-operation = get_op_func(argv[2]);
-a = atoi(argv[1]);
-b = atoi(argv[3]);
 
 if (argc != 4)
 {
 printf("Error\n");
 exit(98);
 }
+
+operation = get_op_func(argv[2]);
+a = atoi(argv[1]);
+b = atoi(argv[3]);
+
 if (operation == NULL || argv[2][1] != '\0')
 {
 printf("Error\n");
