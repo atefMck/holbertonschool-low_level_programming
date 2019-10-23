@@ -36,7 +36,7 @@ printf("Error\n");
 exit(100);
 }
 
-r = (*operation)(a, b);
+r = operation(a, b);
 printf("%d\n", r);
 return (0);
 }
