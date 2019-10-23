@@ -15,9 +15,9 @@ int i;
 int v;
 
 if (array == NULL)
-return (0);
+return (-1);
 if (cmp == NULL)
-return (0);
+return (-1);
 
 if (size <= 0)
 return (-1);
