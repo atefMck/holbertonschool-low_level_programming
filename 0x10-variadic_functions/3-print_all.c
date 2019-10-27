@@ -63,6 +63,7 @@ form mind[] = {
 {0, NULL},
 };
 unsigned int i = 0, j;
+char *sep = "";
 va_list obj;
 
 va_start(obj, format);
@@ -74,8 +75,10 @@ while (mind[j].cond)
 {
 if (mind[j].cond == format[i])
 {
+printf("%s", sep);
 mind[j].printType(obj);
-printf(", ");
+sep = ", ";
+break;
 }
 j++;
 }
