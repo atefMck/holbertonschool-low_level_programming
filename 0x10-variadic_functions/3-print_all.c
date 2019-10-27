@@ -62,12 +62,12 @@ form mind[] = {
 {'s', printString},
 {0, NULL},
 };
-int i = 0, j;
+unsigned int i = 0, j;
 va_list obj;
 
 va_start(obj, format);
 
-while (format[i])
+while (format[i] && format)
 {
 j = 0;
 while (mind[j].cond)
@@ -75,10 +75,7 @@ while (mind[j].cond)
 if (mind[j].cond == format[i])
 {
 mind[j].printType(obj);
-if (format[i + 1])
-{
 printf(", ");
-}
 }
 j++;
 }
