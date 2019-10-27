@@ -3,7 +3,7 @@
 #include <stdarg.h>
 
 /**
-* print_numbers - prints all numbers in arguments
+* print_strings - prints all strings in arguments
 * @separator: the seperator
 * @n: number of args
 * Return: void
