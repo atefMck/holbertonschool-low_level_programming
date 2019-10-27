@@ -43,7 +43,10 @@ void printString(va_list lol)
 char *ch;
 ch = va_arg(lol, char *);
 if (ch == NULL)
-ch = "(nil)";
+{
+printf("(nil)");
+return;
+}
 printf("%s", ch);
 }
 
@@ -55,6 +58,10 @@ printf("%s", ch);
 
 void print_all(const char * const format, ...)
 {
+int i, j;
+char *sep = "";
+va_list obj;
+
 form mind[] = {
 {"c", printChar},
 {"i", printInt},
@@ -62,12 +69,11 @@ form mind[] = {
 {"s", printString},
 {NULL, NULL},
 };
-unsigned int i = 0, j;
-char *sep = "";
-va_list obj;
+
 
 va_start(obj, format);
 
+i = 0;
 while (format[i] && format)
 {
 j = 0;
@@ -78,7 +84,6 @@ if (*(mind[j].cond) == format[i])
 printf("%s", sep);
 mind[j].printType(obj);
 sep = ", ";
-break;
 }
 j++;
 }
