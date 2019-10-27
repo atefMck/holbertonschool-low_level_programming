@@ -56,11 +56,11 @@ printf("%s", ch);
 void print_all(const char * const format, ...)
 {
 form mind[] = {
-{'c', printChar},
-{'i', printInt},
-{'f', printFloat},
-{'s', printString},
-{0, NULL},
+{"c", printChar},
+{"i", printInt},
+{"f", printFloat},
+{"s", printString},
+{NULL, NULL},
 };
 unsigned int i = 0, j;
 char *sep = "";
@@ -73,7 +73,7 @@ while (format[i] && format)
 j = 0;
 while (mind[j].cond)
 {
-if (mind[j].cond == format[i])
+if (*(mind[j].cond) == format[i])
 {
 printf("%s", sep);
 mind[j].printType(obj);

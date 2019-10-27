@@ -16,7 +16,7 @@ void print_all(const char * const format, ...);
 
 typedef struct form
 {
-char cond;
+char *cond;
 void (*printType)(va_list lol);
 } form;
 
