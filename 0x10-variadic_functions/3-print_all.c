@@ -42,7 +42,7 @@ void printString(va_list lol)
 {
 char *ch;
 ch = va_arg(lol, char *);
-if (c == NULL)
+if (ch == NULL)
 {
 printf("(nil)");
 return;
