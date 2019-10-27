@@ -43,10 +43,7 @@ void printString(va_list lol)
 char *ch;
 ch = va_arg(lol, char *);
 if (ch == NULL)
-{
-printf("(nil)");
-return;
-}
+ch = "(nil)";
 printf("%s", ch);
 }
 
