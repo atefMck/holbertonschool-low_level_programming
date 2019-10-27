@@ -74,10 +74,10 @@ form mind[] = {
 va_start(obj, format);
 
 i = 0;
-while (format[i] && format)
+while (format[i] != NULL && format != NULL)
 {
 j = 0;
-while (mind[j].cond)
+while (mind[j].cond != NULL)
 {
 if (*(mind[j].cond) == format[i])
 {
