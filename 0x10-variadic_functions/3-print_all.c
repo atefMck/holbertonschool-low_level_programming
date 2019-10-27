@@ -42,7 +42,7 @@ void printString(va_list lol)
 {
 char *ch;
 ch = va_arg(lol, char *);
-if (ch == NULL)
+if (c == NULL)
 {
 printf("(nil)");
 return;
@@ -74,10 +74,10 @@ form mind[] = {
 va_start(obj, format);
 
 i = 0;
-while (format[i] != NULL && format != NULL)
+while (format && format[i])
 {
 j = 0;
-while (mind[j].cond != NULL)
+while (mind[j].cond)
 {
 if (*(mind[j].cond) == format[i])
 {
