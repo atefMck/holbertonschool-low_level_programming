@@ -14,7 +14,7 @@ va_list obj;
 unsigned int i;
 int sum = 0;
 
-if (n <=0)
+if (n <= 0)
 return (0);
 
 va_start(obj, n);
