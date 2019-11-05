@@ -1,9 +1,8 @@
 #include "lists.h"
 
 /**
-* add_nodeint_end - print items in a list
+* free_listint - print items in a list
 * @head: the list to be printed
-* @str: the value
 * Return: modified list
 */
 void free_listint(listint_t *head)

@@ -5,7 +5,7 @@
 /**
 * add_nodeint_end - print items in a list
 * @head: the list to be printed
-* @str: the value
+* @n: the value
 * Return: modified list
 */
 listint_t *add_nodeint_end(listint_t **head, const int n)
