@@ -11,6 +11,9 @@ size_t c = 0;
 listint_t *temp, *aux, *flag;
 
 flag = malloc(sizeof(listint_t));
+if (flag == NULL)
+exit(98);
+
 flag->n = 969696;
 flag->next = NULL;
 temp = (void *)head;
@@ -24,7 +27,7 @@ free_listint(temp);
 return (c);
 }
 else
-printf("[%p] %d\n", (void *)temp,temp->n);
+printf("[%p] %d\n", (void *)temp, temp->n);
 aux = temp;
 temp = temp->next;
 aux->next = flag;
@@ -34,6 +37,12 @@ free_listint(flag);
 return (c);
 }
 
+
+/**
+* free_listint - print items in a list
+* @head: the list to be printed
+* Return: modified list
+*/
 void free_listint(listint_t *head)
 {
 listint_t *temp;
