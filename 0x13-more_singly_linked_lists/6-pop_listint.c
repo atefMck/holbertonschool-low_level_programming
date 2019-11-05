@@ -15,8 +15,9 @@ return (0);
 
 temp = *head;
 r = (*head)->n;
-*head = (*head)->next;
 free(temp);
+*head = (*head)->next;
+
 
 return (r);
 }
