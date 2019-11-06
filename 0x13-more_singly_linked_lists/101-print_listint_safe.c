@@ -8,34 +8,52 @@
 size_t print_listint_safe(const listint_t *head)
 {
 size_t c = 0;
-listint_t *temp, *aux, *flag;
+int i = 0;
+listint_t *temp, *fast, *slow;
 
-flag = malloc(sizeof(listint_t));
-if (flag == NULL)
+temp = (void *)head;
+fast = temp;
+slow = temp;
+
+if (temp == NULL)
 exit(98);
 
-flag->n = 969696;
-flag->next = NULL;
-temp = (void *)head;
-
-while (temp)
+if (temp->next == NULL)
 {
-if (temp->next == flag)
-{
-printf("-> [%p] %d\n", (void *)temp->next, temp->n);
-free_listint(temp);
-return (c);
-}
-else
 printf("[%p] %d\n", (void *)temp, temp->n);
-aux = temp;
-temp = temp->next;
-aux->next = flag;
 c++;
-}
-free_listint(flag);
 return (c);
 }
+
+while (fast && fast->next)
+{
+slow = slow->next;
+fast = fast->next->next;
+if (slow == fast)
+{
+slow = temp;
+while (slow != fast)
+{
+slow = slow->next;
+fast = fast->next;
+}
+break;
+}
+}
+
+while (temp && i < 2)
+{
+printf("[%p] %d\n", (void *)temp, temp->n);
+temp = temp->next;
+c++;
+if (temp == slow)
+i++;
+}
+if (temp == slow)
+printf("-> [%p] %d\n", (void *)slow, slow->n);
+return (c);
+}
+
 
 
 /**
