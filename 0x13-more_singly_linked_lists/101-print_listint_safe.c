@@ -25,6 +25,14 @@ c++;
 return (c);
 }
 
+if (temp->next == temp)
+{
+printf("[%p] %d\n", (void *)temp, temp->n);
+printf("-> [%p] %d\n", (void *)temp, temp->n);
+c++;
+return (c);
+}
+
 while (fast && fast->next)
 {
 slow = slow->next;
@@ -41,7 +49,7 @@ break;
 }
 }
 
-while (temp && i < 2)
+while (temp && i < 1)
 {
 printf("[%p] %d\n", (void *)temp, temp->n);
 temp = temp->next;
@@ -55,6 +63,18 @@ return (c);
 }
 
 
+/** looool */
+size_t print_listint(const listint_t *h)
+{
+size_t c = 0;
+while (h)
+{
+printf("%d\n", h->n);
+h = h->next;
+c++;
+}
+return (c);
+}
 
 /**
 * free_listint - print items in a list
