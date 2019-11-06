@@ -49,7 +49,7 @@ break;
 }
 }
 
-while (temp && i < 1)
+while (temp && i < 2)
 {
 printf("[%p] %d\n", (void *)temp, temp->n);
 temp = temp->next;
