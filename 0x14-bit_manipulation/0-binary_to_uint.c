@@ -36,7 +36,7 @@ len++;
 len--;
 
 lenf = len;
-for ( i = 0; i <= lenf; i++)
+for (i = 0; i <= lenf; i++)
 {
 if (b[i] != '1' && b[i] != '0')
 return (0);
@@ -45,5 +45,5 @@ r += power(2, len);
 len--;
 }
 
-return(r);
+return (r);
 }
