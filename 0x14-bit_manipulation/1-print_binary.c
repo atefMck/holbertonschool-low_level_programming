@@ -19,7 +19,7 @@ if (n & i)
 _putchar('1');
 c = 1;
 }
-if (!(n & i) && c)
+if (!(n & i) &&c)
 _putchar('0');
 }
 i = i >> 1;
