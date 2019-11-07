@@ -1,25 +1,20 @@
 #include "holberton.h"
 
 /**
-* _pow - returns a to power of b
-* @a: first int received
-* @b: second int received
-* Return: power of two ints
+* power - a ^ b
+* @a: member1
+* @b: member2
+* Return: a ^ b =
 */
-int _pow(int a, int b)
+int power(int a, int b)
 {
-int exp = 1;
-
+int r = a;
 if (b == 0)
 return (1);
 
-while (b > 0)
-{
-exp *= a;
-b--;
-}
-
-return (exp);
+for (; b > 1; b--)
+a *= r;
+return (a);
 }
 
 /**
@@ -29,26 +24,26 @@ return (exp);
 */
 unsigned int binary_to_uint(const char *b)
 {
-unsigned int total = 0;
-int c = 0, i = 0;
+int len = 0, r = 0;
+int i, lenf;
 
 if (b == NULL)
 return (0);
 
-while (b[c] != '\0')
-c++;
 
-c--;
-while (c >= 0)
+while (b[len])
+len++;
+len--;
+
+lenf = len;
+for ( i = 0; i <= lenf; i++)
 {
-if (b[c] == '0' || b[c] == '1')
-{
-total += ((b[c]) - '0') * _pow(2, i);
-i++;
-c--;
-}
-else
+if (b[i] != '1' && b[i] != '0')
 return (0);
+if (b[i] == '1')
+r += power(2, len);
+len--;
 }
-return (total);
+
+return(r);
 }
