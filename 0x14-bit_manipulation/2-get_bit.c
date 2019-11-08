@@ -13,6 +13,7 @@ unsigned long int i = 1;
 if (index > (sizeof(int) * 8))
 return (-1);
 i <<= index;
+
 if (i & n)
 return (1);
 else
