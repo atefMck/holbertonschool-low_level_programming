@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
 
 int _putchar(char c);
 int power(int a, int b);
