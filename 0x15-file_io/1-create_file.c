@@ -20,9 +20,12 @@ o = open(filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 if (o < 0)
 return (-1);
 
+if (text_content)
+{
 w = write(o, text_content, len);
 if (w < 0)
 return (-1);
+}
 
 close(o);
 return (1);
