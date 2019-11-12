@@ -53,12 +53,10 @@ exit(97);
 filefrom = open(argv[1], O_RDONLY);
 errorHandle(filefrom, 1, 1, argv);
 
-r = read(filefrom, buffer, 1024);
-errorHandle(r, 1, 1, argv);
-
 fileto = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 errorHandle(1, fileto, 1, argv);
 
+r = 1024;
 while (r == 1024)
 {
 r = read(filefrom, buffer, 1024);
@@ -68,6 +66,7 @@ if (w != r)
 w = -1;
 errorHandle(w, 1, 1, argv);
 }
+
 c = close(filefrom);
 errorHandle(filefrom, 1, c, argv);
 c = close(fileto);
