@@ -12,7 +12,7 @@ int let;
 char *buffer;
 ssize_t r,w;
 
-if (!(filename))
+if (filename == NULL)
 return 0;
 
 let = open(filename, O_RDONLY);
@@ -20,7 +20,7 @@ if (let < 0)
 return (0);
 
 buffer = malloc(sizeof(char) * letters);
-if (!(buffer))
+if (buffer == NULL)
 return (0);
 
 r = read(let, buffer, letters);
