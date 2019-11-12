@@ -1,6 +1,38 @@
 #include "holberton.h"
 
 /**
+ * errorHandle - handles errors.
+ * @src: source fd.
+ * @dest: dest fd.
+ * @close: close status.
+ * @args: arguments.
+ * Return: status.
+ */
+void errorHandle(int src, int dest, int close, char *args[])
+{
+if (ser < 0)
+{
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+exit(98);
+}
+if (dest < 0)
+{
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+exit(99);
+}
+if (close < 0 && src < 0)
+{
+dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", argv[1]);
+exit(100);
+}
+if (close < 0 && dest < 0)
+{
+dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", argv[2]);
+exit(100);
+}
+}
+
+/**
  * main - copies file.
  * @argc: num of args.
  * @argv: arguments.
@@ -19,45 +51,21 @@ exit(97);
 }
 
 filefrom = open(argv[1], O_RDONLY);
-if (filefrom < 0)
-{
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-exit(98);
-}
+errorHandle(filefrom, 1, 1, argv);
 
 r = read(filefrom, buffer, 1024);
-if (r < 0)
-{
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-exit(98);
-}
+errorHandle(r, 1, 1, argv);
 
 c = close(filefrom);
-if (c < 0)
-{
-dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", argv[1]);
-exit(100);
-}
+errorHandle(filefrom, 1, c, argv);
 
 fileto = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
-if (filefrom < 0)
-{
-dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-exit(99);
-}
+errorHandle(1, fileto, 1, argv);
 
 w = write(fileto, buffer, r);
-if (w < 0)
-{
-dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-exit(99);
-}
+errorHandle(w, 1, 1, argv);
 
 c = close(fileto);
-if (c < 0)
-{
-dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", argv[2]);
-exit(100);
-}
+errorHandle(fileto, 1, c, argv);
 
 }
