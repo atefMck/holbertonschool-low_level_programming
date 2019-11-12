@@ -66,6 +66,6 @@ w = write(fileto, buffer, r);
 errorHandle(w, 1, 1, argv);
 
 c = close(fileto);
-errorHandle(fileto, 1, c, argv);
-
+errorHandle(1, fileto, c, argv);
+return (0);
 }
