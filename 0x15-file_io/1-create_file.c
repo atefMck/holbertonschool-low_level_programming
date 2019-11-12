@@ -13,15 +13,15 @@ int o, w, len;
 if (filename == NULL)
 return (-1);
 
-while (text_content[len])
-len++;
 
 o = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 if (o < 0)
 return (-1);
 
-if (!text_content)
+if (text_content == NULL)
 text_content = "";
+while (text_content[len])
+len++;
 
 w = write(o, text_content, len);
 if (w < 0)
