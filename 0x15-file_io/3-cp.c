@@ -56,15 +56,20 @@ errorHandle(filefrom, 1, 1, argv);
 r = read(filefrom, buffer, 1024);
 errorHandle(r, 1, 1, argv);
 
-c = close(filefrom);
-errorHandle(filefrom, 1, c, argv);
-
-fileto = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+fileto = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 errorHandle(1, fileto, 1, argv);
 
+while (r == 1024)
+{
+r = read(filefrom, buffer, 1024);
+errorHandle(r, 1, 1, argv);
 w = write(fileto, buffer, r);
+if (w != r)
+w = -1;
 errorHandle(w, 1, 1, argv);
-
+}
+c = close(filefrom);
+errorHandle(filefrom, 1, c, argv);
 c = close(fileto);
 errorHandle(1, fileto, c, argv);
 return (0);
