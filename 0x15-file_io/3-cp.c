@@ -6,7 +6,7 @@
  * @argv: arguments.
  * Return: status.
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
 int filefrom, fileto;
 int r, w, c;
