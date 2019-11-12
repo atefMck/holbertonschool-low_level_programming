@@ -15,9 +15,8 @@ return (-1);
 
 while (text_content[len])
 len++;
-len--;
 
-o = open(filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+o = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 if (o < 0)
 return (-1);
 
