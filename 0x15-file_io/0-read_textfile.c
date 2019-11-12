@@ -10,10 +10,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 int let;
 char *buffer;
-ssize_t r,w;
+ssize_t r, w;
 
 if (filename == NULL)
-return 0;
+return (0);
 
 let = open(filename, O_RDONLY);
 if (let < 0)
@@ -26,6 +26,8 @@ return (0);
 r = read(let, buffer, letters);
 if (r < 0)
 return (0);
+
+buffer[letters] = '\0';
 
 w = write(STDIN_FILENO, buffer, r);
 if (w < 0 || w != r)
