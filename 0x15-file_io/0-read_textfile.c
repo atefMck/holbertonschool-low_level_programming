@@ -29,7 +29,7 @@ return (0);
 
 buffer[letters] = '\0';
 
-w = write(STDIN_FILENO, buffer, r);
+w = write(STDOUT_FILENO, buffer, r);
 if (w < 0 || w != r)
 return (0);
 
