@@ -39,8 +39,6 @@ dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", argv[1]);
 exit(100);
 }
 
-/** Second file */
-
 fileto = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 if (filefrom < 0)
 {
