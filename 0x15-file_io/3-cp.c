@@ -20,12 +20,12 @@ if (dest < 0)
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", args[2]);
 exit(99);
 }
-if (close < 0 && src < 0)
+if (close < 0 && src > 0)
 {
 dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", args[1]);
 exit(100);
 }
-if (close < 0 && dest < 0)
+if (close < 0 && dest > 0)
 {
 dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", args[2]);
 exit(100);
@@ -64,7 +64,7 @@ errorHandle(r, 1, 1, argv);
 w = write(fileto, buffer, r);
 if (w != r)
 w = -1;
-errorHandle(w, 1, 1, argv);
+errorHandle(1, w, 1, argv);
 }
 
 c = close(filefrom);
