@@ -1,108 +1,75 @@
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include "holberton.h"
 
 /**
- * err_98 - checks that file_from exists and can be read
- * @check: checks if true of false
- * @file: file_from name
- * @f_from: file descriptor of file_from, or -1
- * @f_to: file descriptor of file_to, or -1
- *
- * Return: void
+ * errorHandle - handles errors.
+ * @src: source fd.
+ * @dest: dest fd.
+ * @close: close status.
+ * @args: arguments.
+ * Return: status.
  */
-void err_98(ssize_t check, char *file, int f_from, int f_to)
+void errorHandle(int src, int dest, int close, char *args[])
 {
-if (check == -1)
+if (src < 0)
 {
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
-if (f_from != -1)
-close(f_from);
-if (f_to != -1)
-close(f_to);
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", args[1]);
 exit(98);
 }
-}
-
-/**
- * err_99 - checks that file_to was created and/or can be written to
- * @check: checks if true of false
- * @file: file_to name
- * @f_from: file descriptor of file_from, or -1
- * @f_to: file descriptor of file_to, or -1
- *
- * Return: void
- */
-void err_99(ssize_t check, char *file, int f_from, int f_to)
+if (dest < 0)
 {
-if (check == -1)
-{
-dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
-if (f_from != -1)
-close(f_from);
-if (f_to != -1)
-close(f_to);
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", args[2]);
 exit(99);
 }
+if (close < 0 && src < 0)
+{
+dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", args[1]);
+exit(100);
 }
-
-/**
- * err_100 - checks that file descriptors were closed properly
- * @check: checks if true or false
- * @f: file descriptor
- *
- * Return: void
- */
-void err_100(int check, int f)
+if (close < 0 && dest < 0)
 {
-if (check == -1)
-{
-dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", f);
+dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", args[2]);
 exit(100);
 }
 }
+
 /**
- * main - opies the content of a file to another file.
- * @argc: number of arguments passed
- * @argv: array of pointers to the arguments
- *
- * Return: 0 on success
+ * main - copies file.
+ * @argc: num of args.
+ * @argv: arguments.
+ * Return: status.
  */
 int main(int argc, char *argv[])
 {
-int f_from, f_to, close_to, close_from;
-ssize_t length_r, length_w;
-char f_buffer[1024];
-mode_t mode;
+int filefrom, fileto;
+int r, w, c;
+char buffer[1024];
 
 if (argc != 3)
 {
 dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 exit(97);
 }
-f_from = open(argv[1], O_RDONLY);
-err_98((ssize_t)f_from, argv[1], -1, -1);
-mode =  S_IWUSR | S_IRUSR | S_IWGRP |  S_IRGRP |  S_IROTH;
-f_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
-err_99((ssize_t)f_to, argv[2], f_from, -1);
-length_r = 1024;
 
-while (length_r == 1024)
+filefrom = open(argv[1], O_RDONLY);
+errorHandle(filefrom, 1, 1, argv);
+
+fileto = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+errorHandle(1, fileto, 1, argv);
+
+r = 1024;
+while (r == 1024)
 {
-length_r = read(f_from, f_buffer, 1024);
-err_98(length_r, argv[1], f_from, f_to);
-length_w = write(f_to, f_buffer, length_r);
-if (length_w != length_r)
-length_w = -1;
-err_99(length_w, argv[2], f_from, f_to);
+r = read(filefrom, buffer, 1024);
+errorHandle(r, 1, 1, argv);
+w = write(fileto, buffer, r);
+if (w != r)
+w = -1;
+errorHandle(w, 1, 1, argv);
 }
 
-close_to = close(f_to);
-close_from = close(f_from);
-err_100(close_to, f_to);
-err_100(close_from, f_from);
+c = close(filefrom);
+errorHandle(filefrom, 1, c, argv);
+c = close(fileto);
+errorHandle(1, fileto, c, argv);
 return (0);
 }
