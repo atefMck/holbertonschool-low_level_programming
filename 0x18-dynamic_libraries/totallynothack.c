@@ -11,6 +11,7 @@
 int rand(void)
 {
 static int number = 1;
+int ab = 969;
 number++;
 switch (number)
 {
@@ -35,4 +36,5 @@ break;
 default:
 break;
 }
+return (ab);
 }
