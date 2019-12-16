@@ -1,40 +1,22 @@
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include <unistd.h>
+#include <string.h>
 
-/**
-* rand - overwriting the rand function
-*
-* Return: 0 on success
-*/
-int rand(void)
+int rand()
 {
-static int number = 1;
-int ab = 969;
-number++;
-switch (number)
-{
-case 2:
-return (9);
-break;
-case 3:
-return (8);
-break;
-case 4:
-return (10);
-break;
-case 5:
-return (24);
-break;
-case 6:
-return (75);
-break;
-case 7:
-return (9);
-break;
-default:
-break;
-}
-return (ab);
+	static int ct = -1;
+
+	ct++;
+	if (ct == 0)
+		return 8;
+	if (ct == 1)
+		return 8;
+	if (ct == 2)
+		return 7;
+	if (ct == 3)
+		return 9;
+	if (ct == 4)
+		return 23;
+	if (ct == 5)
+		return 74;
+	return ct * ct % 30000;
 }
