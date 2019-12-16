@@ -2,7 +2,7 @@
 
 /**
 * print_dlistint - print elements of list
-* @h: list to print
+* @h: doubly linked list to print
 * Return: num of elements
 */
 size_t print_dlistint(const dlistint_t *h)
