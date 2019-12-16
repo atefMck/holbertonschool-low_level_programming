@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
-* print_dlistint - print elements of list
+* dlistint_len - print elements of list
 * @h: doubly linked list to print
 * Return: num of elements
 */
