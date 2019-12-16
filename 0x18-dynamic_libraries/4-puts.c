@@ -1,12 +1,19 @@
-#include <stdio.h>
+#include <unistd.h>
+#include "holberton.h"
 /**
- * main - Entry point
- * print message
- * Return: Always 0 (Success)
+ * _puts - prints a string
+ * @str: the string to print
+ * Return: void.
  */
-int main(void)
+void _puts(char *str)
 {
-puts("\"Programming is like building a multilingual puzzle");
-return (0);
+int i = 0;
+char c;
+while (*(str + i))
+{
+c = *(str + i);
+_putchar(c);
+i++;
 }
-
+_putchar('\n');
+}
