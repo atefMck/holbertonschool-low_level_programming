@@ -1,24 +1,17 @@
 #include "hash_tables.h"
 
 /**
-* hash_table_create - creates a hash table
-* @size: size of the table
-* Return: pointer to the hash table
+* hash_djb2 - get key position
+* @str: the key
+* Return: returns key index
 */
-hash_table_t *hash_table_create(unsigned long int size)
+unsigned long int hash_djb2(const unsigned char *str)
 {
-hash_table_t *ht;
-if (size <= 0)
-return (NULL);
-ht = malloc(sizeof(hash_table_t));
-if (!ht)
-return (NULL);
-ht->size = size;
-ht->array = malloc(sizeof(hash_node_t *) * size);
-if (!ht->array)
-{
-free(ht);
-return (NULL);
-}
-return (ht);
+unsigned long hash = 5381;
+int c;
+
+while (c = *str++)
+hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+
+return hash;
 }
