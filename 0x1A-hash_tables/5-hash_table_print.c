@@ -20,7 +20,7 @@ while (node)
 {
 if (s)
 printf(", ");
-printf("'%s': '%s'",node->key, node->value);
+printf("'%s': '%s'", node->key, node->value);
 s = 1;
 node = node->next;
 }
