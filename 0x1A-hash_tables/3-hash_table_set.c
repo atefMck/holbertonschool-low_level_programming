@@ -16,6 +16,8 @@ return (0);
 if (!key)
 return (0);
 newNode = malloc(sizeof(hash_node_t *));
+if (!newNode)
+return (0);
 newNode->key = strdup(key);
 newNode->value = strdup(value);
 index = key_index((const unsigned char *) key, ht->size);
