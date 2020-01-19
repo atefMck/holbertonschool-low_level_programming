@@ -13,12 +13,13 @@ if (!ht)
 return;
 for (i = 0; i < ht->size; i++)
 {
-node = ht->array[i];
-while (node)
+while (ht->array[i])
 {
-ht->array[i] = ht->array[i]->next;
-free(node);
-node = ht->array[i];
+node = ht->array[i]->next;
+free(ht->array[i]->value);
+free(ht->array[i]->key);
+free(ht->array[i]);
+ht->array[i] = node;
 }
 }
 free(ht->array);
