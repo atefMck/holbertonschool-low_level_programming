@@ -13,7 +13,7 @@ unsigned long int index;
 hash_node_t *newNode;
 if (!ht)
 return (0);
-if (!key)
+if (!key || !value)
 return (0);
 newNode = malloc(sizeof(hash_node_t *));
 if (!newNode)
