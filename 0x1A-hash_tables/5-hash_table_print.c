@@ -16,8 +16,6 @@ printf("{");
 for (i = 0; i < ht->size; i++)
 {
 node = ht->array[i];
-if (node)
-{
 while (node)
 {
 if (s)
@@ -25,7 +23,6 @@ printf(", ");
 printf("'%s': '%s'", ht->array[i]->key, ht->array[i]->value);
 s = 1;
 node = node->next;
-}
 }
 }
 printf("}\n");
