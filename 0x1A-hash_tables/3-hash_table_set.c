@@ -31,6 +31,7 @@ if (strcmp(current->key, key) == 0)
 free(newNode->key);
 free(newNode->value);
 free(newNode);
+free(current->value);
 current->value = strdup(value);
 return (1);
 }
