@@ -19,6 +19,7 @@ if (!newNode)
 return (0);
 newNode->key = strdup(key);
 newNode->value = strdup(value);
+newNode->next = NULL;
 index = key_index((const unsigned char *) key, ht->size);
 current = ht->array[index];
 if (current)
@@ -27,6 +28,9 @@ while (current)
 {
 if (strcmp(current->key, key) == 0)
 {
+free(newNode->key);
+free(newNode->value);
+free(newNode);
 current->value = strdup(value);
 return (1);
 }
