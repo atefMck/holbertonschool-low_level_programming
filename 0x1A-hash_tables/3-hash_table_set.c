@@ -28,12 +28,3 @@ else
 ht->array[index] = newNode;
 return (1);
 }
-
-int main(void)
-{
-    hash_table_t *ht;
-
-    ht = hash_table_create(1024);
-    hash_table_set(ht, "betty", "holberton");
-    return (EXIT_SUCCESS);
-}
