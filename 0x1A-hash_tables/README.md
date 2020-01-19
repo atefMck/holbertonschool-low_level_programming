@@ -1,0 +1,1 @@
+Hello, today we'll spend a five solid hours learning about hash tables
