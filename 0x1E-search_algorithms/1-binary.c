@@ -25,13 +25,13 @@ int binary_search(int *array, size_t size, int value)
 		for (i = start; i < end - 1; i++)
 			printf("%d, ", array[i]);
 		printf("%d\n", array[i]);
-		mid = (start + end) / 2;
+		mid = (start + end - 1) / 2;
 		piv = array[mid];
 		if (value == piv)
 			return (mid);
 		else if (piv > value)
-			end = mid - 1;
-		else if (piv <= value)
+			end = mid;
+		else if (piv < value)
 			start = mid + 1;
 	}
 	return (-1);
