@@ -21,7 +21,7 @@ int rec_binary(int *array, size_t start, size_t end, int value)
 	for (i = start; i < end - 1; i++)
 		printf("%d, ", array[i]);
 	printf("%d\n", array[i]);
-	mid = (start + end - 1) / 2;
+	mid = (start + end) / 2;
 	if (value == array[mid] && array[mid - 1] != value)
 		return (mid);
 	else if (array[mid] > value)
