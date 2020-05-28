@@ -61,8 +61,6 @@ int exponential_search(int *array, size_t size, int value)
 	printf("Value found between indexes [%ld] and [%ld]\n", i / 2, i - 1);
 	start = i / 2;
 	end = i;
-	mid = (start + end) / 2;
-	piv = array[mid];
 	if (i >= size)
 		end = size - 1;
 	while (end >= start)
@@ -71,14 +69,14 @@ int exponential_search(int *array, size_t size, int value)
 		for (j = start; j < end; j++)
 			printf("%d, ", array[j]);
 		printf("%d\n", array[j]);
+		mid = (start + end) / 2;
+		piv = array[mid];
 		if (value == piv)
 			return (mid);
 		else if (piv > value)
-			end = mid - 1;
+			end = mid;
 		else if (piv < value)
 			start = mid + 1;
-		mid = (start + end) / 2;
-		piv = array[mid];
 	}
 	return (-1);
 }
