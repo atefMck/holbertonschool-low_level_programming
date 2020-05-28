@@ -54,32 +54,33 @@ int exponential_search(int *array, size_t size, int value)
 		return (-1);
 	if (value == array[0])
 		return (0);
-	for (i = 1; i < size * 2; i = i * 2)
+	for (i = 1; i < size && array[i] <= value; i *= 2)
 	{
-		if (array[i - 1] >= value)
-		{
-			printf("Value found between indexes [%ld] and [%ld]\n", i / 2, i - 1);
-			if (array[i - 1] == value)
-				return (i - 1);
-			start = (i - 1) / 2;
-			end = i - 1;
-			printf("Searching in array: ");
-			for (j = start; j < end; j++)
-				printf("%d, ", array[j]);
-			printf("%d\n", array[j]);
-			while (start < end)
-			{
-				mid = (start + end) / 2;
-				piv = array[mid];
-				if (value == piv)
-					return (mid);
-				else if (piv > value)
-					end = mid;
-				else if (piv < value)
-					start = mid + 1;
-			}
-		}
-		printf("Value checked array[%ld] = [%d]\n", i - 1, array[i - 1]);
+		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
 	}
+	printf("Value found between indexes [%ld] and [%ld]\n", i / 2, i - 1);
+	start = i / 2;
+	end = i;
+	if (i >= size)
+		end = size - 1;
+	while (start < end)
+	{
+		printf("Searching in array: ");
+		for (j = start; j < end; j++)
+			printf("%d, ", array[j]);
+		printf("%d\n", array[j]);
+		mid = (start + end) / 2;
+		piv = array[mid];
+		if (value == piv)
+			return (mid);
+		else if (piv > value)
+			end = mid;
+		else if (piv < value)
+			start = mid + 1;
+	}
+	printf("Searching in array: ");
+	for (j = start; j < end; j++)
+		printf("%d, ", array[j]);
+	printf("%d\n", array[j]);
 	return (-1);
 }
