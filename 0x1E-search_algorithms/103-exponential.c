@@ -63,7 +63,7 @@ int exponential_search(int *array, size_t size, int value)
 	end = i;
 	if (i >= size)
 		end = size - 1;
-	while (start < end)
+	while (start <= end)
 	{
 		printf("Searching in array: ");
 		for (j = start; j < end; j++)
@@ -74,13 +74,9 @@ int exponential_search(int *array, size_t size, int value)
 		if (value == piv)
 			return (mid);
 		else if (piv > value)
-			end = mid;
+			end = mid - 1;
 		else if (piv < value)
 			start = mid + 1;
 	}
-	printf("Searching in array: ");
-	for (j = start; j < end; j++)
-		printf("%d, ", array[j]);
-	printf("%d\n", array[j]);
 	return (-1);
 }
