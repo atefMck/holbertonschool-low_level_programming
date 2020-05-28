@@ -3,22 +3,21 @@
 #include "search_algos.h"
 
 /**
- * advanced_binary - searches for a value in array
+ * rec_binary - searches for a value in array
  * @array: input array
- * @size: size of array
+ * @start: starting index of the array
+ * @end: ending index of the array
  * @value: value to search
  * Return: index of first encounter
  */
-int advanced_binary(int *array, size_t size, int value)
+int rec_binary(int *array, size_t start, size_t end, int value)
 {
-	size_t end = size;
-	size_t start = 0;
 	size_t mid;
 	size_t i;
 
-	if (!array)
+	if (end < start)
 		return (-1);
-	while (start < end)
+	while (end > start)
 	{
 		printf("Searching in array: ");
 		for (i = start; i < end - 1; i++)
@@ -28,11 +27,25 @@ int advanced_binary(int *array, size_t size, int value)
 		if (value == array[mid] && array[mid - 1] != value)
 			return (mid);
 		else if (array[mid] > value)
-			end = mid;
+			return (rec_binary(array, start, mid, value));
 		else if (array[mid] < value)
-			start = mid + 1;
+			return (rec_binary(array, mid + 1, end, value));
 		else
-			end = mid;
+			return (rec_binary(array, start, mid, value));
 	}
 	return (-1);
+}
+
+/**
+ * advanced_binary - searches for a value in array
+ * @array: input array
+ * @size: size of the array
+ * @value: value to search
+ * Return: index of first encounter
+ */
+int advanced_binary(int *array, size_t size, int value)
+{
+		if (!array)
+			return (-1);
+		return (rec_binary(array, 0, size, value));
 }
